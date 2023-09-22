@@ -1,0 +1,16 @@
+<h2>Users</h2>
+<ul class="users-list">
+  <li *ngFor="let user of users$ | async" [class.selected]="user.id === selectedId">
+    <a [routerLink]="['update', user.id]">
+      <div class="users-list__user-item">
+        <div class="user-name">{{ user.username }}</div>
+        <div class="firstname">{{ user.first_name }}</div>
+        <div class="lastname">{{ user.last_name }}</div>
+        <div class="email">{{ user.email }}</div>
+        <div class="type">{{ user.user_type }}</div>
+      </div>
+    </a>
+  </li>
+</ul>
+
+<button type="button" (click)="openCreatePage()">Create</button>

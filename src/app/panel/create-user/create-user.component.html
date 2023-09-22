@@ -1,0 +1,121 @@
+<p>create-user works!</p>
+
+
+<form [formGroup]="userForm" #form>
+  <div class="row">
+
+    <div class="col-12" appearance="outline" [style.fontSize.px]="12">
+      <label>{{ 'UserName' }}</label>
+      <input placeholder="{{ 'Name' }}" formControlName="username" />
+      <span mat-error *ngIf="userForm.controls['username'].hasError('required')">
+        {{ 'This field is required' }}
+      </span>
+      <span mat-error *ngIf="userForm.controls['username'].hasError('maxlength')">
+        {{ 'The name is too long' }}
+      </span>
+    </div>
+
+    <div class="col-12" appearance="outline" [style.fontSize.px]="12">
+      <label>{{ 'FirstName' }}</label>
+      <input placeholder="{{ 'Name' }}" formControlName="first_name" />
+      <span mat-error *ngIf="userForm.controls['first_name'].hasError('required')">
+        {{ 'This field is required' }}
+      </span>
+      <span mat-error *ngIf="userForm.controls['first_name'].hasError('maxlength')">
+        {{ 'The name is too long' }}
+      </span>
+    </div>
+
+    <div class="col-12" appearance="outline" [style.fontSize.px]="12">
+      <label>{{ 'LastName' }}</label>
+      <input placeholder="{{ 'Name' }}" formControlName="last_name" />
+      <span mat-error *ngIf="userForm.controls['last_name'].hasError('required')">
+        {{ 'This field is required' }}
+      </span>
+      <span mat-error *ngIf="userForm.controls['last_name'].hasError('maxlength')">
+        {{ 'The name is too long' }}
+      </span>
+    </div>
+
+    <div class="col-6" appearance="outline" [style.fontSize.px]="12">
+      <label>{{ 'E-mail' }}</label>
+      <input matInput placeholder="{{ 'E-mail' }}" formControlName="email" />
+      <span mat-error *ngIf="userForm.controls['email'].hasError('required')">
+        {{ 'This field is required' }}
+      </span>
+      <span mat-error *ngIf="userForm.controls['email'].hasError('email')">Please provide the correct e-mail</span>
+    </div>
+
+    <div class="col-6" appearance="outline" [style.fontSize.px]="12">
+      <label>{{ 'User role' }}</label>
+      <select formControlName="type">
+        <option *ngFor="let role of filteredRoles$ | async" [value]="role.id">
+          {{ role.type.replace('-', ' ') | titlecase }}
+        </option>
+      </select>
+      <span mat-error *ngIf="userForm.controls['type'].hasError('required')">
+        {{ 'This field is required' }}
+      </span>
+    </div>
+
+
+    <div class="col-6 password-field" appearance="outline" [style.fontSize.px]="12">
+      <label mat-label>{{ 'Password' }}</label>
+      <input
+        matInput
+        type="password"
+        [type]="hidePassword ? 'password' : 'text'"
+        placeholder="{{ 'Password' }}"
+        formControlName="password"
+      />
+      <span
+        mat-icon-button
+        matSuffix
+        (click)="hidePassword = !hidePassword"
+        [attr.aria-label]="'hidePassword password'"
+        [attr.aria-pressed]="hidePassword"
+      >
+      </span>
+      <span mat-error *ngIf="password.hasError('required')">
+        {{ 'This field is required' }}
+      </span>
+      <span *ngIf="password.hasError('pattern')">
+        {{ 'Please provide min. 8 characters, at least one uppercase letter, and at least one number.' }}
+      </span>
+    </div>
+
+    <div class="col-6 confirm-password-field" appearance="outline" [style.fontSize.px]="12">
+      <label mat-label>{{ 'Confirm Password' }}</label>
+      <input
+        matInput
+        type="password"
+        [type]="hidePassword ? 'password' : 'text'"
+        placeholder="{{ 'Confirm Password' }}"
+        formControlName="confirm_password"
+      />
+      <span mat-error *ngIf="confirm_password.hasError('required')">
+        {{ 'This field is required' }}
+      </span>
+      <span *ngIf="confirm_password.hasError('pattern')">
+        {{ 'Please provide min. 8 characters, at least one uppercase letter, and at least one number.' }}
+      </span>
+      <!-- <span *ngIf="confirm_password.hasError('pattern')">
+        {{ 'Please provide min. 8 characters, at least one uppercase letter, and at least one number.' }}
+      </span> -->
+      <span mat-error class="mandatory" *ngIf="(userForm.dirty || userForm.touched) && userForm.hasError('passwordMismatch')">
+        {{ 'Passwords doesn\'t work' }}
+      </span>
+    </div>
+
+  <button mat-button class="text-capitalize" [innerText]="'return'" (click)="returnAction()"></button>
+  <button
+    mat-flat-button
+    color="accent"
+    class="text-capitalize"
+    type="submit"
+    [disabled]="!userForm.valid"
+    (click)="submit()"
+    [innerText]="'Create'"
+  ></button>
+  </div>
+</form>
