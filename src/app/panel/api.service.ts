@@ -11,7 +11,6 @@ export class ApiService {
   }
 
   refresh() {
-
     const apiDemoUcgUrl = `${this.cs.get('apiUrl')}`;
     this.setApiDemoUcgUrl(apiDemoUcgUrl);
   }

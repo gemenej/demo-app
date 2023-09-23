@@ -1,54 +1,62 @@
-/* HeroListComponent's private CSS styles */
+@import '../../../styles/variables';
+
 .users-list {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 100%;
+  background-color: $card-bg;
+
   li {
     position: relative;
     cursor: pointer;
   }
+
   a {
-    color: black;
+    color: $dark-text;
     text-decoration: none;
     display: block;
     font-size: 1.2rem;
-    background-color: #eee;
-    margin: .5rem .5rem .5rem 0;
+    background-color: #F4F5F8;
+    margin: 1px 0;
     padding: .5rem 0;
-    border-radius: 4px;
-
-    .users-list {
-      &__user-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 .5rem;
-        .user-item__name {
-          font-weight: bold;
-        }
-        .user-item__email {
-          font-size: .8rem;
-          color: #666;
-        }
-      }
-    }
 
     &:hover {
       color: #2c3a41;
-      background-color: #e6e6e6;
+      background-color: #EFF0F4;
     }
+
     &:active {
-      background-color: #525252;
+      background-color: #EFF0F4;
       color: #fafafa;
     }
   }
+
   .selected a {
-    background-color: #d6e6f7;
+    background-color: #EFF0F4;
+
     &:hover {
-      background-color: #bdd7f5;
+      background-color: #EFF0F4;
     }
   }
+
+  .users-list {
+    &__user-item {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      padding: 22px 26px;
+
+      div {
+        width: 22%;
+      }
+
+      .type {
+        width: 12%;
+      }
+    }
+  }
+
   .badge {
     padding: .5em .6em;
     color: white;
