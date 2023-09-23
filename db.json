@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "username": "UserName1",
+      "first_name": "FirstName1",
+      "last_name": "LastName1",
+      "email": "email1@exml.com",
+      "user_type": 1,
+      "id": 1,
+      "password": "1234asdF"
+    },
+    {
+      "id": 2,
+      "username": "UserName2",
+      "first_name": "FirstName2",
+      "last_name": "LastName2",
+      "email": "email2@e.sa",
+      "password": "1234asdF",
+      "user_type": 2
+    },
+    {
+      "username": "UserName3",
+      "first_name": "FirstName3",
+      "last_name": "LastName3",
+      "email": "email3@exml.comzd",
+      "user_type": 1,
+      "id": 3
+    },
+    {
+      "username": "UserName4",
+      "first_name": "FirstName4",
+      "last_name": "LastName4",
+      "email": "lastname4@fdf.cl",
+      "user_type": "1",
+      "password": "1234asdF",
+      "id": 4
+    },
+    {
+      "username": "UserName5",
+      "first_name": "FirstName5",
+      "last_name": "LastName5",
+      "email": "asd@ds.com3",
+      "user_type": 2,
+      "password": "1234qweR",
+      "id": 5
+    }
+  ],
+  "user_types": [
+    {
+      "id": 1,
+      "type": "admin"
+    },
+    {
+      "id": 2,
+      "type": "driver"
+    }
+  ]
+}
